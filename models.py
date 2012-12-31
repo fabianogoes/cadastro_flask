@@ -1,23 +1,37 @@
 #coding: utf-8
 
-from sqlalchemy import create_engine
-from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import Column, Integer, String
+from database import Base
 
-Base = declarative_base()
-
-class User(Base):
-    __tablename__ = 'users'
+class Usuario(Base):
+    __tablename__ = 'tbl_usuarios'
 
     id = Column(Integer, primary_key=True)
     name = Column(String(50))
     login = Column(String(30))
     password = Column(String(20))
 
-    def __init__(self, name, fullname, password):
+    def __init__(self, name, login, password):
         self.name = name
-        self.fullname = fullname
+        self.login = login
         self.password = password
 
     def __repr__(self):
-       return "<User('%s', '%s','%s', '%s')>" % (self.id, self.name, self.login, self.password)
+       return "<Usuario('%s', '%s','%s', '%s')>" % (self.id, self.name, self.login, self.password)
+
+class Colaborador(Base):
+    __tablename__ = 'tbl_colaboradores'
+
+    id = Column(Integer, primary_key=True)
+    name = Column(String(50))
+    tipo = Column(String(30)) # Funcionario, PJ, Estagiario
+    departamento = Column(String(30))
+
+    def __init__(self, name, tipo, departamento):
+        self.name = name
+        self.tipo = tipo
+        self.departamento = departamento
+
+    def __repr__(self):
+       return "<Colaborador('%s', '%s','%s', '%s')>" % (self.id, self.name, self.tipo, self.departamento)
+      

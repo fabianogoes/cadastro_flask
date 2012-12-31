@@ -1,44 +1,34 @@
 #coding: utf-8
 
 from models import *
-import sqlalchemy
-from sqlalchemy import create_engine
-from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy import Column, Integer, String
-from sqlalchemy.orm import sessionmaker
+from database import *
 
-STR_CONNECTION = 'mysql://root:root@localhost/test'
+# OBS:
+# não preciso dar commit porque configurei a sessão como autocommit=True    
+# db_session.commit()
 
-engine = create_engine(STR_CONNECTION, echo=True) 
-Session = sessionmaker(bind=engine)
-Session.configure(bind=engine)
-conn = engine.connect()
-session = Session(bind=conn)
+init_db()
 
-
-class UserORM():
+class UsuarioORM():    
 
     def save(self, puser, paction):        
         if paction == 'add':
-            session.add(puser)
+            db_session.add(puser)
         else:
-            session.merge(puser)
-
-        session.commit()
+            db_session.merge(puser)        
 
     def query_all(self):
-        users = session.query(User).all()
+        users = db_session.query(Usuario).all()
         return users
 
     def query_filter_name(self, pname):
-        users = session.query(User).filter_by(name=pname).all()
+        users = db_session.query(Usuario).filter_by(name=pname).all()
         return users
 
     def query_filter_id(self, puserid):
-        user = session.query(User).get(puserid)
+        user = db_session.query(Usuario).get(puserid)
         return user
 
     def delete(self, puserid):
         user = self.query_filter_id(puserid)        
-        session.delete(user)
-        session.commit()        
+        db_session.delete(user)
