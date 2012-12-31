@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+    {% block menu_superior %}
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="#">Cadastro Flask ORM</a>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li><a href="/">Inicio</a></li>
+              <li class="active"><a href="/list_user">Usuario</a></li>
+              <li><a href="/sobre">Sobre</a></li>              
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+    {% endblock %}
+
+    {% block context %}
+    <h1>Lista de Usuarios</h1>
+
+    <div class=entries>
+    <table class="table table-striped table-hover">
+        <thead>
+            <td>ID</td>
+            <td>Name</td>
+            <td>Full Name</td>
+            <td>Password</td>
+            <td>Edit</td>
+            <td>Delete</td>
+        </thead>
+        <tbody>
+        {% for user in list_users %}
+            <tr>
+                <td>{{user.id}}</td>
+                <td>{{user.name}}</td>
+                <td>{{user.fullname}}</td>
+                <td>{{user.password}}</td>
+                <td><a href="/edit_user/{{user.id}}"><i class="icon-edit"></i></a></td>
+                <td><a href="/delete_user/{{user.id}}"><i class="icon-trash"></i></a></td>
+            </tr>
+        {% else %}
+        <tr><td colspan='6'>Nenhum usuário cadastrado</td></tr>
+        {% endfor %}
+        <tr><td colspan='6'>
+            <center>
+                <a href="/add_user" class="btn btn-primary" type="button">Adicionar Novo usuário</a>
+            </center>
+        </td></tr>        
+        </tbody>
+    </table>
+    </div>    
+
+    {% endblock %}
