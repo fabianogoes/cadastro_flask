@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+    {% block context %}    
+    <blockquote>
+        <p><h1>Cadastro de Colaboradores</h1></p>
+        <hr>
+    </blockquote>
+
+    <form class="form-inline" action="/save_colaborador/{{action}}" method=post>
+        <input type=hidden name=action value={{action}}>
+        <input type=hidden name=id value={{col.id}}>    
+        <div class="control-group">
+            <label class="control-label">Nome:</label>
+            <div class="controls">
+                <input class="input-xlarge" type="text" name="nome" value={{col.nome}}>
+            </div>
+        </div>
+
+        <div class="control-group">
+            <label class="control-label">Tipo:</label>
+            <div class="controls">
+                <input class="input-xxlarge" type="text" name="tipo" value={{col.tipo}}>
+            </div>
+        </div>
+
+        <div class="control-group">
+            <label class="control-label">Departamento:</label>
+            <div class="controls">
+                <input class="input-medium" type="text" name="departamento" value={{col.departamento}}>
+            </div>
+        </div>
+
+        <div class="control-group">
+            <input class="btn btn-primary" type="submit" value="Salvar"> 
+            <a class="btn" href="/list_colaborador">Cancelar</a>            
+        </div>
+
+    </form>
+    <br>
+    {% endblock %}

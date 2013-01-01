@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+    {% block context %}    
+    <blockquote>
+        <p><h1>Cadastro de Usuarios</h1></p>
+        <hr>
+    </blockquote>
+
+    <form class="form-inline" action="/save_usuario/{{action}}" method=post>
+        <input type=hidden name=action value={{action}}>
+        <input type=hidden name=id value={{usuario.id}}>    
+        <div class="control-group">
+            <label class="control-label">Name:</label>
+            <div class="controls">
+                <input class="input-xlarge" type="text" name="nome" value={{usuario.nome}}>
+            </div>
+        </div>
+
+        <div class="control-group">
+            <label class="control-label">Login:</label>
+            <div class="controls">
+                <input class="input-xxlarge" type="text" name="login" value={{usuario.login}}>
+            </div>
+        </div>
+
+        <div class="control-group">
+            <label class="control-label">Password:</label>
+            <div class="controls">
+                <input class="input-medium" type="password" name="password" value={{usuario.password}}>
+            </div>
+        </div>
+
+        <div class="control-group">
+            <input class="btn btn-primary" type=submit value=Salvar> 
+            <a class="btn" href="/list_usuario">Cancelar</a>            
+        </div>
+
+    </form>
+    <br>
+    {% endblock %}
