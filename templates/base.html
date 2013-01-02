@@ -32,32 +32,40 @@
     <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
-          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </a>
-          <a class="brand" href="/">Cadastro Flask/ORM</a>
+          <a class="brand" href="/">Flask/ORM</a>
+          
           <div class="nav-collapse collapse">
             <ul class="nav">
-              <li class="active"><a href="/">Inicio</a></li>
+              <li class="active"><a href="/list_usuario">Usuário</a></li>              
+              <li><a href="/list_colaborador">Colaborador</a></li>              
+              <li><a href="/list_cliente">Cliente</a></li>              
+              <li><a href="#">Fornecedor</a></li>
+              <li><a href="#">Produto</a></li>
+              <li><a href="#">Contas a Pagar</a></li>
+              <li><a href="#">Contas a Receber</a></li>
+              <li><a href="#">Compras</a></li>
+              <li><a href="#">Vendas</a></li>
               <li><a href="/sobre">Sobre</a></li>              
             </ul>
           </div><!--/.nav-collapse -->
+          
         </div>
       </div>
     </div>
     {% endblock %}
 
     <div class="container">
+
     {% block context %}
     <!-- conteudo principal da pagina -->      
     {% endblock %}
 
 
     {% block footer_page %}
-        <hr>
-        <center><a href="#">www.asisco.com.br</a></center>
+        <center>
+          <hr/>
+          <a href="#">www.asisco.com.br</a>
+        </center>
     {% endblock %}
 
     </div> <!-- /container -->

@@ -4,11 +4,16 @@ from flask import render_template
 from views_usuario import *    
 from views_colaborador import *
 from views_cliente import *
+from views_common import *
 from __init__ import *
 
 @app.route('/')
 def index ():
-    return render_template('index.html')
+    titles = ['ID', 'Nome']
+    lines = [ ['1','Fabiano'], ['2', 'Dulci'] ]
+
+    grid = create_grid(lines, titles)
+    return render_template('index.html', grid=grid)
 
 
 @app.route('/sobre')
