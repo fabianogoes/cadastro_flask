@@ -1,6 +1,7 @@
 #coding: utf-8
 
-from sqlalchemy import Column, Integer, String
+from sqlalchemy import Column, Integer, String, ForeignKey
+from sqlalchemy.orm import relationship, backref
 from database import Base
 
 class Usuario(Base):
@@ -10,6 +11,9 @@ class Usuario(Base):
     nome = Column(String(50))
     login = Column(String(30))
     password = Column(String(20))
+
+    colaborador_id = Column(Integer, ForeignKey('tbl_colaboradores.id'))
+    colaborador = relationship("Colaborador", backref=backref('usuarios', order_by=id))
 
     def __init__(self, nome, login, password):
         self.nome = nome

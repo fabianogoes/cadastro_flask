@@ -29,12 +29,9 @@
         {% else %}
         <tr><td colspan='6'>Nenhum usuário cadastrado</td></tr>
         {% endfor %}
-        <tr><td colspan='6'>
-            <center>
-                <a href="/add_usuario" class="btn btn-primary" type="button">Adicionar Novo usuário</a>
-            </center>
-        </td></tr>        
         </tbody>
     </table>
-
+    <center>
+        <a href="/add_usuario" class="btn btn-primary" type="button">Adicionar Novo usuário</a>
+    </center>
     {% endblock %}

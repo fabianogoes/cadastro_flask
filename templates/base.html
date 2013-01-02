@@ -5,7 +5,8 @@
     <title>cadastro Flask ORM</title>
     {% endblock %}
     <meta http-equiv="content-type" content="text/html;charset=utf-8" />
-
+    
+    {% block css_js %}
     <!-- Le styles -->
     <link href="{{ url_for('static', filename='bootstrap/css/bootstrap.css') }}" rel="stylesheet">
     <style>
@@ -25,7 +26,7 @@
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{ url_for('static', filename='bootstrap/ico/apple-touch-icon-72-precomposed.png') }}">
     <link rel="apple-touch-icon-precomposed" href="{{ url_for('static', filename='bootstrap/ico/apple-touch-icon-57-precomposed.png') }}">
     <link rel="shortcut icon" href="{{ url_for('static', filename='bootstrap/ico/favicon.png') }}">    
-
+    {% endblock %}    
 </head>
 <body>   
     {% block menu_superior %}

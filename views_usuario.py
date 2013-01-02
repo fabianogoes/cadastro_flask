@@ -3,6 +3,8 @@
 from flask import *
 from orm.orm_usuario import UsuarioORM
 from models.models_usuario import Usuario
+from orm.orm_colaborador import ColaboradorORM
+from models.models_colaborador import Colaborador
 from __init__ import *
 
 
@@ -17,15 +19,21 @@ def list_usuario():
 @app.route('/add_usuario')
 def add_usuario ():
     usuario = None
+    colnome = None
     ACTION = 'add'
-    return render_template('usuario_form.html', usuario=usuario, action=ACTION)
+    cols = ColaboradorORM().query_all()
+    return render_template('usuario_form.html', usuario=usuario, colaborador_nome=colnome, 
+    action=ACTION, list_cols=cols)
 
 
 @app.route('/edit_usuario/<p_id>')
 def edit_usuario(p_id):
     usuario = UsuarioORM().query_filter_id(p_id)
+    colnome = ColaboradorORM().query_filter_id(usuario.colaborador_id).nome
+    cols = ColaboradorORM().query_all()
     ACTION = 'edit'
-    return render_template('usuario_form.html', usuario=usuario, action=ACTION)
+    return render_template('usuario_form.html', usuario=usuario, action=ACTION, 
+    colaborador_nome=colnome, list_cols=cols)
 
 
 @app.route('/delete_usuario/<p_usuarioid>', methods=['GET', 'POST'])
@@ -39,6 +47,7 @@ def delete_usuario(p_usuarioid):
 def save_usuario(p_action):
     if request.method == 'POST':
         usuario = Usuario(request.form['nome'], request.form['login'], request.form['password'])
+        usuario.colaborador_id = request.form['colaborador_id']
         if p_action == 'edit':
             usuario.id = request.form['id']
 
