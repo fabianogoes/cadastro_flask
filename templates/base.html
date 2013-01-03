@@ -3,9 +3,12 @@
 <head>
     {% block title %}
     <title>cadastro Flask ORM</title>
-    {% endblock %}
-    <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+    {% endblock %}    
     
+    {% block metas %}
+    <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+    {% endblock %}
+
     {% block css_js %}
     <!-- Le styles -->
     <link href="{{ url_for('static', filename='bootstrap/css/bootstrap.css') }}" rel="stylesheet">
@@ -40,8 +43,8 @@
               <li class="active"><a href="/list_usuario">Usuário</a></li>              
               <li><a href="/list_colaborador">Colaborador</a></li>              
               <li><a href="/list_cliente">Cliente</a></li>              
-              <li><a href="#">Fornecedor</a></li>
-              <li><a href="#">Produto</a></li>
+              <li><a href="/list_fornecedor">Fornecedor</a></li>
+              <li><a href="/list_produto">Produto</a></li>
               <li><a href="#">Contas a Pagar</a></li>
               <li><a href="#">Contas a Receber</a></li>
               <li><a href="#">Compras</a></li>

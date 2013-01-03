@@ -1,7 +1,7 @@
-#coding: utf-8
+# -*- coding: utf-8 -*-
 
 from models.models_usuario import Usuario
-from database import *
+from database_settings import *
 
 # OBS:
 # não preciso dar commit porque configurei a sessão como autocommit=True    

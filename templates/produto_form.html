@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+    {% block context %}    
+    <blockquote>
+        <p><h1>Cadastro de Produtos</h1></p>
+        <hr>
+    </blockquote>
+
+    <form class="form-inline" action="/save_produto/{{action}}" method=post>
+        <input type="hidden" name="action" value={{action}}>
+        <input type="hidden" name="id" value={{produto.id}}>    
+        <div class="control-group">
+            <label class="control-label">Nome:</label>
+            <div class="controls">
+                <input class="input-xxlarge" type=text name=nome value={{produto.nome}}>
+            </div>
+        </div>
+
+        <div class="control-group">
+            <input class="btn btn-primary" type=submit value=Salvar> 
+            <a class="btn" href="/list_produto">Cancelar</a>            
+        </div>
+
+    </form>
+    <br>
+    {% endblock %}

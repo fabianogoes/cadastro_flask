@@ -1,4 +1,4 @@
-#coding: utf-8
+# -*- coding: utf-8 -*-
 
 def create_grid(list_data, list_metadata):
     #grid = '<table class="table table-striped table-hover">'

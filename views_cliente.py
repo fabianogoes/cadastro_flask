@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from flask import *
 from orm.orm_cliente import ClienteORM
 from models.models_cliente import Cliente
@@ -35,7 +36,9 @@ def delete_cliente(p_clienteid):
 @app.route('/save_cliente/<p_action>', methods=['GET', 'POST'])
 def save_cliente(p_action):
     if request.method == 'POST':
-        cliente = Cliente(request.form['nome'], request.form['telefone'], request.form['email'])
+        cliente = Cliente(request.form['nome'], request.form['telefone'], request.form['email'], 
+            request.form['cpf'])
+        
         if p_action == 'edit':
             cliente.id = request.form['id']
 

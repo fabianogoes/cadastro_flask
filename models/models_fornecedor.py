@@ -5,8 +5,8 @@ from database_settings import Base
 
 import database_settings
 
-class Cliente(Base):
-    __tablename__ = database_settings.TBL_CLIENTE
+class Fornecedor(Base):
+    __tablename__ = database_settings.TBL_FORNECEDOR
 
     id = Column(Integer, primary_key=True)
     nome = Column(String(50))
@@ -21,5 +21,5 @@ class Cliente(Base):
         self.cpf = cpf        
 
     def __repr__(self):
-       return "<Cliente('%s', '%s','%s', '%s', '%s')>" % (self.id, self.nome, self.telefone, 
+       return "<Fornecedor('%s', '%s','%s', '%s', '%s')>" % (self.id, self.nome, self.telefone, 
             self.email, self.cpf)

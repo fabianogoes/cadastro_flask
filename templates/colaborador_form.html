@@ -1,5 +1,9 @@
 {% extends 'base.html' %}
 
+    {% block metas %}
+        <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+    {% endblock %}
+
     {% block context %}    
     <blockquote>
         <p><h1>Cadastro de Colaboradores</h1></p>
@@ -19,14 +23,22 @@
         <div class="control-group">
             <label class="control-label">Tipo:</label>
             <div class="controls">
-                <input class="input-xxlarge" type="text" name="tipo" value={{col.tipo}}>
+                <select class="span3" name="tipo">
+                {% for item in tipos %}
+                    <option>{{ item }}</option>
+                {% endfor %}
+                </select>
             </div>
         </div>
 
         <div class="control-group">
             <label class="control-label">Departamento:</label>
             <div class="controls">
-                <input class="input-medium" type="text" name="departamento" value={{col.departamento}}>
+                <select class="span3" name="departamento">
+                {% for item in departamentos %}
+                    <option>{{ item }}</option>
+                {% endfor %}
+                </select>
             </div>
         </div>
 
@@ -37,4 +49,8 @@
 
     </form>
     <br>
+
+
     {% endblock %}
+
+

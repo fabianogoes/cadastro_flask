@@ -1,10 +1,12 @@
-#coding: utf-8
+# -*- coding: utf-8 -*-
 
 from sqlalchemy import Column, Integer, String
-from database import Base
+from database_settings import Base
+
+import database_settings
 
 class Colaborador(Base):
-    __tablename__ = 'tbl_colaboradores'
+    __tablename__ = database_settings.TBL_COLABORADOR
 
     id = Column(Integer, primary_key=True)
     nome = Column(String(50))

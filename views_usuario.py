@@ -1,4 +1,4 @@
-#coding: utf-8
+# -*- coding: utf-8 -*-
 
 from flask import *
 from orm.orm_usuario import UsuarioORM
@@ -46,8 +46,8 @@ def delete_usuario(p_usuarioid):
 @app.route('/save_usuario/<p_action>', methods=['GET', 'POST'])
 def save_usuario(p_action):
     if request.method == 'POST':
-        usuario = Usuario(request.form['nome'], request.form['login'], request.form['password'])
-        usuario.colaborador_id = request.form['colaborador_id']
+        usuario = Usuario(request.form['login'], request.form['password'], request.form['colaborador_id'])
+
         if p_action == 'edit':
             usuario.id = request.form['id']
 

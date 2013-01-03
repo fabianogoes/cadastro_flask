@@ -2,44 +2,44 @@
 
     {% block context %}    
     <blockquote>
-        <p><h1>Cadastro de Clientes</h1></p>
+        <p><h1>Cadastro de Fornecedores</h1></p>
         <hr>
     </blockquote>
 
-    <form class="form-inline" action="/save_cliente/{{action}}" method=post>
-        <input type=hidden name=action value={{action}}>
-        <input type=hidden name=id value={{cliente.id}}>    
+    <form class="form-inline" action="/save_fornecedor/{{action}}" method=post>
+        <input type="hidden" name="action" value={{action}}>
+        <input type="hidden" name="id" value={{fornecedor.id}}>    
         <div class="control-group">
             <label class="control-label">Nome:</label>
             <div class="controls">
-                <input class="input-xxlarge" type=text name=nome value={{cliente.nome}}>
+                <input class="input-xxlarge" type=text name=nome value={{fornecedor.nome}}>
             </div>
         </div>
 
         <div class="control-group">
             <label class="control-label">CPF:</label>
             <div class="controls">
-                <input class="input-medium" type=text name=cpf value={{cliente.cpf}}>
+                <input class="input-medium" type=text name=cpf value={{fornecedor.cpf}}>
             </div>
         </div>
         
         <div class="control-group">
             <label class="control-label">Email:</label>
             <div class="controls">
-                <input class="input-xxlarge" type="text" name="email" value={{cliente.email}}>
+                <input class="input-xxlarge" type="text" name="email" value={{fornecedor.email}}>
             </div>
         </div>
         
         <div class="control-group">
             <label class="control-label">Telefone:</label>
             <div class="controls">
-                <input class="input-medium" type=text name=telefone value={{cliente.telefone}}>
+                <input class="input-medium" type=text name=telefone value={{fornecedor.telefone}}>
             </div>
         </div>
 
         <div class="control-group">
             <input class="btn btn-primary" type=submit value=Salvar> 
-            <a class="btn" href="/list_cliente">Cancelar</a>            
+            <a class="btn" href="/list_fornecedor">Cancelar</a>            
         </div>
 
     </form>
